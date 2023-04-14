@@ -50,10 +50,12 @@ body {
     display: flex;
 }
 .wrapper {
+
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
     box-sizing: content-box;
+    
     
 }
 .container {
@@ -157,9 +159,8 @@ left: 55px;
 }
 
 .btn__img {
-position: relative;
-left: 22px;
-top: 7px;
+display: block;
+margin: 9px auto  ;
 }
 /* ----------------------title-search---end--------------------------- */
 /* --------------------------Recomend---start-------------------- */
@@ -313,3 +314,198 @@ margin-top: 25px;
 
 
 /* -----------------footer--end----------------------- */
+/* ----------------modal-window-genre-start----------- */
+.modal.show {
+    display: block;
+    z-index: 1050;
+    opacity: 1;
+  }
+
+.modal {
+position: absolute;
+left: 25%;
+right: 0;
+top: 120px;
+width: 100%;
+height: 100%;
+display: none;
+}
+.modal__dialog {
+    position: relative;
+    width: 450px;
+    height: 250px;
+    border: #B11226 solid 4px;
+    border-radius: 20px;
+    background-color: #fff;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+.modal__content {
+    margin: 30px 0px 0px 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 24px 24px 24px 24px 24px 24px 24px ;
+}
+.modal__item {
+    font-size: 24px;
+    color: #707070;
+    line-height: 85%;
+}
+
+.modal .hide {
+    display: none;
+     z-index: -1;
+     opacity: 0;
+}
+/* ----------------modal-window-genre-end------------- */
+/* ----------------btn-sing-in--start----------------- */
+.btn_container {
+position: absolute;
+left: 0;
+top: 1750px;
+height: 815px;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.84);
+display: none;
+}
+
+.btn_content {
+    display: flex;
+    
+    justify-content: center;
+    margin-top: 260px;
+    width: 100%;
+}
+.btn_sing-in {
+    font-size: 64px;
+    font-weight: 700;
+    font-family: Amaranth;
+    color: #fff;
+    background-color: #B11226;
+    width: 617px;
+    height: 133px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+/* ----------------btn-sing-in--end------------------- */
+/* -------------------modal-sign-in--start------------ */
+.modal_sign {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1050;
+    display: none;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.8);
+
+}
+.midal_container {
+    display: flex;
+    width: 887px;
+    height: 593px;
+    background-color: #fff;
+    border-radius: 58px;
+margin: 150px auto 0 auto;
+padding: 43px 223px 31px 223px;
+box-sizing: border-box;
+flex-wrap: wrap;
+}
+.modal_btns {
+    display: flex;
+    width: 440px;
+    height: 67px;
+    border: #000 solid 1px ;
+    border-radius: 58px;
+}
+.head_btn-red {
+    display: flex;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 83%;
+    color: #fff;
+    text-decoration: none;
+    width: 220px;
+    background-color: #B11226;
+    border-radius: 58px;
+    align-items: center;
+    justify-content: center;
+
+}
+.head_btn {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 83%;
+    display: flex;
+    align-items: center;
+margin-left: 25px;
+    color: #B11226;
+    text-decoration: none;
+
+}
+.modal_inputs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.modal_input {
+    font-size: 24px;
+    line-height: 37%;
+    color: #707070;
+    width: 440px;
+    height: 42px;
+    border: none;
+    border-bottom: #000 solid 1px;
+}
+
+.modal_forget {
+    font-size: 18px;
+    font-family: Segoe UI;
+    color: #000;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    width: 440px;
+    margin-bottom: 83px;
+}
+.btn_log-in {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: Advent Pro;
+    line-height: 83%;
+    width: 220px;
+    height: 67px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #B11226;
+    border-radius: 53px;
+    margin: 0 auto ;
+    border: none;
+}
+.madal_or {
+    font-size: 24px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 36px;
+    display: flex;
+    width: 440px;
+    color: #707070;
+    justify-content: center;
+}
+
+.modal_social {
+    display: flex;
+margin: 0 auto;
+}
+.modal_social :not(:last-child) {
+    margin-right: 70px;
+}
+/* -------------------modal-sign-in--end-------------- */
+/* body {
+    height: 2570px;
+    margin: 0;
+    padding: 0;
+} */
