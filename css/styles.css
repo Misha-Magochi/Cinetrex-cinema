@@ -75,6 +75,8 @@ body {
     font-weight: 400;
     line-height: 80%;
     margin-left: 41px;
+    text-decoration: none;
+    color: #fff;
 }
 .header_title {
     font-size: 24px;
@@ -100,11 +102,18 @@ body {
 }
 .nav_menu {
     margin-top: 15px;
-   display: grid;
-   grid-template-columns: 80px 80px 100px 80px 110px 110px;
-   grid-gap: 75px;
+   display: flex;
+   flex-wrap: wrap;
 
 }
+.menu_item {
+    position: relative;
+    margin: 0 70px 0 0;
+}
+.menu_item :not(:last-child) {
+    margin: 0 ;
+}
+
 
 .menu_link {
     font-size: 24px;
@@ -178,7 +187,7 @@ margin: 9px auto  ;
 
 }
 .goriяontal_lain {
-    width: 1338px;
+    width: 100%;
     border-bottom: #B11226 solid 5px;
     margin: 14px 0px 20px  0px;
 }
@@ -188,33 +197,59 @@ flex-wrap: wrap;
 max-width: 900px;
 padding-left: 10px;
 }
+.rec_trend .show {
+    display: block;
+    z-index: 1050;
+    opacity: 1;
+  }
 
 .rec_trend {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-   color: #000;
-   font-size: 24px;
-   height: 40px;
-   font-weight: 400;
-   text-decoration: none;
-   background-color: #DB2512;
-margin-right: 70px;
-margin-bottom: 35px;
-   width: fit-content;
-   padding-left: 8px;
+
+    font-size: 24px;
+    height: 40px;
+    font-weight: 400;
+    text-decoration: none;
+    background-color: #DB2512;
+    margin-right: 70px;
+    margin-bottom: 35px;
+    width: fit-content;
+    padding-left: 8px;
 }
+.rec_trend :hover {
+    color: #fff;
+}
+.link-on {
+    text-decoration: none;
+    color: #000;
+}
+
 
 .rec_trend-zig {
-margin-right: 9px;
+    margin-right: 9px;
 }
 .rec_trend-X {
+    color: #fff;
     width: 8px;
     height: 11px;
-margin-left: 5px;
-padding-right: 15px;
+    margin: 0 0 10px 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+
+}
+.rec_trend-X:hover {
+    color: #000;
 }
 
+.rec_trend .hide {
+    display: none;
+     z-index: -1;
+     opacity: 0;
+}
 /* -----------------------Recomend----end----------------------- */
 /* ---------------------muvies--start------------------------- */
 .movie {
@@ -277,17 +312,17 @@ margin-top: 25px;
 
 }
 .footer_links {
-    width: 120px;
+    max-width: 120px;
     margin-right: 50px;
     
 }
 .footer_recommend {
-    width: 120px;
+    max-width: 120px;
     margin-right: 50px;
     margin-top: 33px;
 }
 .footer_contact {
-    width: 120px;
+    max-width: 120px;
     margin-right: 50px;
     margin-top: 33px;
     
@@ -305,7 +340,7 @@ margin-top: 25px;
     font-size: 15px;
     font-weight: 700;
     line-height: 83%;
-    width: 650px;
+    max-width: 650px ;
     margin-bottom: 15px;
 }
 .text_color {
@@ -315,30 +350,43 @@ margin-top: 25px;
 
 /* -----------------footer--end----------------------- */
 /* ----------------modal-window-genre-start----------- */
+
+
+.modal {
+    position: relative;
+    display: none;
+    opacity: 0;
+}
 .modal.show {
     display: block;
     z-index: 1050;
     opacity: 1;
-  }
-
-.modal {
-position: absolute;
-left: 25%;
-right: 0;
-top: 120px;
-width: 100%;
-height: 100%;
-display: none;
+    animation-name: modal-Win;
+    animation-duration: 1s;
 }
+@keyframes modal-Win{
+        0%{
+            top: -250px;
+            opacity: 0;
+        }
+        50% {
+            opacity: 0;
+        }
+        100%{
+            top: 0;
+            opacity: 1;
+        }
+}
+
 .modal__dialog {
-    position: relative;
+    position: absolute;
     width: 450px;
     height: 250px;
     border: #B11226 solid 4px;
     border-radius: 20px;
     background-color: #fff;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
+    
+    
 }
 .modal__content {
     margin: 30px 0px 0px 30px;
@@ -359,6 +407,8 @@ display: none;
 }
 /* ----------------modal-window-genre-end------------- */
 /* ----------------btn-sing-in--start----------------- */
+
+
 .btn_container {
 position: absolute;
 left: 0;
@@ -367,8 +417,22 @@ height: 815px;
 width: 100%;
 background-color: rgba(0, 0, 0, 0.84);
 display: none;
+animation-name: anm-btn;
+animation-duration: 1s;
 }
-
+@keyframes anm-btn {
+    0%{
+        bottom: -800px;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        bottom: 0;
+        opacity: 1;
+    }
+}
 .btn_content {
     display: flex;
     
@@ -397,12 +461,44 @@ display: none;
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 1050;
-    display: none;
+    display: block;
     overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.8);
-
+    visibility: hidden;
 }
+.modal_sign.show {
+    visibility: visible;
+    z-index: 1050;
+    opacity: 1;
+    animation: zoom 1s liner forwards;
+}
+.modal_sign.hide {
+    visibility: hidden;
+     z-index: -1;
+     opacity: 0;
+}
+@keyframes zoom {
+    0%{
+        transform: scale(0.2);
+    }50%{
+        transform: scale(1.2);
+    }100%{
+        transform: scale(1);
+    }
+}
+.modal_sign.show::backdrop {
+    animation: fade 1s liner forwards;
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+.modal_sign::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
 .midal_container {
     display: flex;
     width: 887px;
@@ -414,42 +510,66 @@ padding: 43px 223px 31px 223px;
 box-sizing: border-box;
 flex-wrap: wrap;
 }
+.midal_container input:focus {
+    outline: none;
+}
 .modal_btns {
     display: flex;
     width: 440px;
     height: 67px;
     border: #000 solid 1px ;
     border-radius: 58px;
+    justify-content: space-between;
 }
 .head_btn-red {
     display: flex;
     font-size: 36px;
     font-weight: 700;
     line-height: 83%;
-    color: #fff;
+    color:#B11226;
     text-decoration: none;
     width: 220px;
-    background-color: #B11226;
-    border-radius: 58px;
+    transition: 0.2s ease-in-out;
     align-items: center;
     justify-content: center;
-
+}
+.head_btn-red.active {
+    background-color: #B11226;
+    border-radius: 58px;
+    color: #fff;
 }
 .head_btn {
     font-size: 36px;
     font-weight: 700;
     line-height: 83%;
     display: flex;
+    justify-content: center;
     align-items: center;
-margin-left: 25px;
     color: #B11226;
     text-decoration: none;
-
+    width: 220px;
 }
+.head_btn.active {
+    background-color: #B11226;
+    border-radius: 58px;
+    color: #fff;
+}
+
 .modal_inputs {
     display: flex;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
+
+ 
+  .modal_inputs {
+    
+  }
+.modal_inputs-up {
+    display: none;
+    margin: 30px 0  77px 0;
+}
+
 .modal_input {
     font-size: 24px;
     line-height: 37%;
@@ -458,6 +578,9 @@ margin-left: 25px;
     height: 42px;
     border: none;
     border-bottom: #000 solid 1px;
+}
+.modal_input.active {
+
 }
 
 .modal_forget {
