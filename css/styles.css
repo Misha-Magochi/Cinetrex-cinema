@@ -92,23 +92,23 @@ body {
 /* --------------------header---end------------------ */
 /* ----------------------nav--start---------------------------- */
 .nav {
-    display: flex;
-    z-index: 50;
-    top: 66px;
-    padding: 0px 0px 0px 0px;
-    
+    margin-top: 15px;
 }
 .wrapper {
-}
-.nav_menu {
-    margin-top: 15px;
-   display: flex;
-   flex-wrap: wrap;
 
 }
+.nav_menu {
+    
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 0 auto;
+    justify-content: space-evenly;
+}
 .menu_item {
-    position: relative;
-    margin: 0 70px 0 0;
+
+
+
 }
 .menu_item :not(:last-child) {
     margin: 0 ;
@@ -462,20 +462,32 @@ animation-duration: 1s;
     left: 0;
     top: 0;
     display: block;
-    overflow: hidden;
+    transform: scale(.2);
+    opacity: 0;
+    transition: all .5s linear;
     visibility: hidden;
 }
 .modal_sign.show {
+    transform: scale(1);
     visibility: visible;
-    z-index: 1050;
     opacity: 1;
-    animation: zoom 1s liner forwards;
+animation: zoom 1s linear forwards;
 }
+
 .modal_sign.hide {
+    transform: scale(.2);
     visibility: hidden;
-     z-index: -1;
-     opacity: 0;
+    opacity: 0;
+animation: zom 1s linear forwards;
 }
+.modal_sign.show::backdrop {
+    animation: fade 1s linear forwards;
+}
+.modal_sign::backdrop {
+    background-color: rgba(0, 0, 0, 0.8)
+    
+}
+
 @keyframes zoom {
     0%{
         transform: scale(0.2);
@@ -485,8 +497,13 @@ animation-duration: 1s;
         transform: scale(1);
     }
 }
-.modal_sign.show::backdrop {
-    animation: fade 1s liner forwards;
+@keyframes zom {
+    from{
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.2);
+    }
 }
 @keyframes fade {
     from {
@@ -495,9 +512,7 @@ animation-duration: 1s;
         opacity: 1;
     }
 }
-.modal_sign::backdrop {
-    background-color: rgba(0, 0, 0, 0.8);
-}
+
 
 .midal_container {
     display: flex;
