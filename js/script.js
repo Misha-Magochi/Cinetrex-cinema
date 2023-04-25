@@ -80,7 +80,7 @@ const modalSign = document.querySelector('.modal_sign'),
 
     BtnSignIn.onclick = function () {
         BtnSignIn.style.display = 'none';
-        document.body.style.overflow = '';
+
     };
 
     function showModalByScroll() {
@@ -125,5 +125,13 @@ const modalSign = document.querySelector('.modal_sign'),
       signInModal.style.display = 'none';
 
     });
+    /* ----------------Drop-down-------------------- */
+    document.getElementById("input").addEventListener("focus", function() {
+      document.getElementById("dropdown").classList.add("show");
+    });
     
+  
+    document.getElementById("input").addEventListener("blur", function() {
+      document.getElementById("dropdown").classList.remove("show");
+    });
 })
