@@ -1,14 +1,20 @@
 window.addEventListener('DOMContentLoaded', () => {
 /* -------------------play-video----------------------------- */
-/* var video = document.getElementById('myVideo');
-var playButton = document.querySelector('.btn_play');
+var video = document.getElementById("myVideo");
+var playPauseBtn = document.getElementById("playPauseBtn");
 
-// Назначьте обработчик события на кнопку воспроизведения
-playButton.addEventListener('click', function() {
-    playButton.style.display = 'none';
+playPauseBtn.addEventListener("click", function() {
+  if (video.paused || video.ended) {
+    video.play();
+    playPauseBtn.style.display = "none"; 
+  } else {
+    video.pause();
+    playPauseBtn.style.display = "block"; 
+  }
+});
 
-}); */
-
-
+video.addEventListener("ended", function() {
+  playPauseBtn.style.display = "block"; 
+});
 
 });
